@@ -10,7 +10,22 @@
   </head>
   <body>
     <div id="app">
-      <h1>Product goes here</h1>
+      <div class="nav-bar">
+        <img v-bind:src="logo" class="logo">
+      </div>
+
+      <div class="produckt-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image" alt="Sword Foto">
+          </div>
+          <div class="product-info">
+              <h1>{{ product + ' ' + infoProduct }}</h1>
+              <p>When you are Master of {{product}} you must visit our{{infoProduct}}</p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Import Js -->

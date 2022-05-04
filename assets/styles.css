@@ -88,6 +88,13 @@ li {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
 }
 
+.nav-bar .logo {
+  width: 30px;
+  margin: 0 auto;
+  text-align: center;
+  border: none;
+}
+
 .out-of-stock-img {
   opacity:0.5
 }
