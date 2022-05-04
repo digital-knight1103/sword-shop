@@ -5,6 +5,10 @@ const app = Vue.createApp({
       infoProduct: 'Shop',
       logo: '/assets/images/vue.svg',
       image: './assets/images/1.png',
+      inStock: true,
+      inventory: 2,
+      onSale: true,
+      
 
     }
   }
