@@ -14,6 +14,8 @@
         <img v-bind:src="logo" class="logo">
       </div>
 
+      <div class="cart">Cart({{ cart }})</div>
+
       <div class="produckt-display">
         <div class="product-container">
           <div class="product-image">
@@ -26,7 +28,24 @@
               <p v-if="inStock && inventory > 10">In Stock</p>
               <p v-else-if="inventory <=10 && inventory > 0 ">Almost sold out</p>
               <p v-else>Out of Stock</p>
-              
+
+              <!-- loop to array from data -->
+              <ul>
+                <li v-for="detail in details"> {{detail}} </li>
+              </ul>
+
+              <div 
+                v-for="variant in variants"
+                v-bind:key="variant.id"
+                v-on:mouseover="updateImage(variant.image)"> {{variant.color + ': ' + variant.name}} </div>
+
+              <ul>
+                <p>Available Sizes</p>
+                <li v-for="size in sizes"> {{size}} </li>
+              </ul>
+
+              <button class="button" v-on:click="addToCart">Add to cart</button>
+              <button class="button" v-on:click="resetCart">Clean cart</button>
           </div>
         </div>
       </div>

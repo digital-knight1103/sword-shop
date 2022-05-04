@@ -169,8 +169,12 @@ textarea {
 }
 
 ul {
+  width: 40%;
   list-style-type: none;
+  border: 3px dotted #84cf6a
 }
+
+
 
 @media only screen and (max-width: 600px) {
   .container {
