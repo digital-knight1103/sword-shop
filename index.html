@@ -19,10 +19,15 @@
       <div class="produckt-display">
         <div class="product-container">
           <div class="product-image">
-            <img v-bind:src="image" alt="Sword Foto">
+            <img 
+              v-bind:src="image"
+              v-bind:class="{ outOfStockImg: !inStock }" 
+              alt="Sword Foto">
           </div>
           <div class="product-info">
-              <h1>{{ product + ' ' + infoProduct }}</h1>
+              <!-- Better assign computed value than join in HTML data value -->
+              <!-- <h1>{{ product + ' ' + infoProduct }}</h1> -->
+              <h1>{{ title }}</h1>
               <p>When you are Master of {{product}} you must visit our{{infoProduct}}</p>
               <p v-show="onSale">ON SALE Knight</p>
               <p v-if="inStock && inventory > 10">In Stock</p>
@@ -35,19 +40,37 @@
               </ul>
 
               <div 
-                v-for="variant in variants"
+                v-for="(variant, index) in variants"
                 v-bind:key="variant.id"
-                v-on:mouseover="updateImage(variant.image)"> {{variant.color + ': ' + variant.name}} </div>
+                v-on:mouseover="updateVariant(index)"
+                class="color-circle"
+                v-bind:style="{ backgroundColor: variant.color}"> 
+                <!-- {{variant.color + ': ' + variant.name}}  -->
+                {{ variant.name}}
+              </div>
 
               <ul>
                 <p>Available Sizes</p>
                 <li v-for="size in sizes"> {{size}} </li>
               </ul>
 
-              <button class="button" v-on:click="addToCart">Add to cart</button>
+              <!-- disabledButton jest to klasa którą dodajemy kiedy inStock będzie false -->
+              <button 
+                class="button"
+                v-bind:class="{ disabledButton: !inStock }"
+                v-bind:disabled= "!inStock"
+                v-on:click="addToCart">
+                Add to cart
+              </button>
+
               <button class="button" v-on:click="resetCart">Clean cart</button>
           </div>
         </div>
+        <div>
+
+        </div>
+
+
       </div>
 
     </div>

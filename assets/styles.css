@@ -33,11 +33,14 @@ body {
 }
 
 .color-circle {
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  color: white;
+  /* height: 50px; */
+  padding: 10px;
+  text-align: center;
   margin-top: 8px;
   border: 2px solid #d8d8d8;
-  border-radius: 50%;
+  border-radius: 8px;
 }
 
 
@@ -95,7 +98,7 @@ li {
   border: none;
 }
 
-.out-of-stock-img {
+.outOfStockImg {
   opacity:0.5
 }
 
@@ -169,7 +172,7 @@ textarea {
 }
 
 ul {
-  width: 40%;
+  max-width: 200px;
   list-style-type: none;
   border: 3px dotted #84cf6a
 }
