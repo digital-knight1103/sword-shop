@@ -15,67 +15,21 @@
       </div>
 
       <div class="cart">Cart({{ cart }})</div>
+      <product-display v-bind:premium="premium"></product-display>
+      <product-display></product-display>
 
-      <div class="produckt-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img 
-              v-bind:src="image"
-              v-bind:class="{ outOfStockImg: !inStock }" 
-              alt="Sword Foto">
-          </div>
-          <div class="product-info">
-              <!-- Better assign computed value than join in HTML data value -->
-              <!-- <h1>{{ product + ' ' + infoProduct }}</h1> -->
-              <h1>{{ title }}</h1>
-              <p>When you are Master of {{product}} you must visit our{{infoProduct}}</p>
-              <p v-show="onSale">ON SALE Knight</p>
-              <p v-if="inStock && inventory > 10">In Stock</p>
-              <p v-else-if="inventory <=10 && inventory > 0 ">Almost sold out</p>
-              <p v-else>Out of Stock</p>
-
-              <!-- loop to array from data -->
-              <ul>
-                <li v-for="detail in details"> {{detail}} </li>
-              </ul>
-
-              <div 
-                v-for="(variant, index) in variants"
-                v-bind:key="variant.id"
-                v-on:mouseover="updateVariant(index)"
-                class="color-circle"
-                v-bind:style="{ backgroundColor: variant.color}"> 
-                <!-- {{variant.color + ': ' + variant.name}}  -->
-                {{ variant.name}}
-              </div>
-
-              <ul>
-                <p>Available Sizes</p>
-                <li v-for="size in sizes"> {{size}} </li>
-              </ul>
-
-              <!-- disabledButton jest to klasa którą dodajemy kiedy inStock będzie false -->
-              <button 
-                class="button"
-                v-bind:class="{ disabledButton: !inStock }"
-                v-bind:disabled= "!inStock"
-                v-on:click="addToCart">
-                Add to cart
-              </button>
-
-              <button class="button" v-on:click="resetCart">Clean cart</button>
-          </div>
-        </div>
-        <div>
-
-        </div>
-
-
-      </div>
 
     </div>
 
     <!-- Import Js -->
     <script src="./main.js"></script>
+
+    <!-- Import Components -->
+    <script src="./components/ProductDisplay.js"></script> 
+
+    <!-- mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
   </body>
 </html>
